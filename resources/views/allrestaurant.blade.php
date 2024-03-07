@@ -1,11 +1,13 @@
+@extends('main')
+@section('content')
 <div>
     <h1>All restaurant</h1>
     @foreach ($restaurants as $restaurant)
-        <div>    
+        <div>
             <span>{{ $restaurant->id }} . </span>
             <a href='restaurants/{{$restaurant->id}}'>
                 <strong>{{ $restaurant->name}}</strong>
-            </a>    
+            </a>
             <p>{{ $restaurant->address}}</p>
             <p>{{ $restaurant->discription}}</p>
             <p>{{ $restaurant->phone_number}}</p>
@@ -14,3 +16,4 @@
     @endforeach
     <a href="/"><strong>Go to Home</strong></a>
 </div>
+@endsection

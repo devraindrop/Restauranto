@@ -17,8 +17,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/restaurants', [RestaurantController::class, 'index']);
-Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show']);
+Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
+Route::get('/restaurants/restaurant', [RestaurantController::class, 'create'])->name('restaurant.create');
+Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurant.show');
 
 Route::get('/deals', function () {
     return view('deals');

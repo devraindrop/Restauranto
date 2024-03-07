@@ -16,13 +16,13 @@ class RestaurantController extends Controller
     public function show(Restaurant $restaurant)
     {
         //$restaurant = Restaurant::findOrFail($id);
-        
+
         return view('restaurant', compact('restaurant'));
     }
 
     public function create()
     {
-        return ('');
+        return view('create');
     }
 
     public function post()
