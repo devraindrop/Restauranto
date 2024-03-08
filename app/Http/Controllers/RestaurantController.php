@@ -25,8 +25,36 @@ class RestaurantController extends Controller
         return view('create');
     }
 
-    public function post()
+    public function store(Request $request)
     {
-        return ('');
+        //$request = dd($request->all());
+
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phone_number' => 'required|integer|unique:restaurants,phone_number',
+            'description' => 'nullable|string',
+        ]);
+
+        Restaurant::create($validatedData);
+
+        return redirect()->route('restaurants.index')->with('success' , 'your data has been added');
+    }
+
+    public function edit(Restaurant $restaurant)
+    {
+        return view('');
+    }
+
+    public function update(Request $request, Restaurant $restaurant)
+    {
+        return view('');
+    }
+
+    public function destroy(Restaurant $restaurant)
+    {
+        $restaurant->delete();
+
+        return redirect()->route('restaurants.index')->with('success' , 'your data has been deleted');
     }
 }
