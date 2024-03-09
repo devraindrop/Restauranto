@@ -1,9 +1,9 @@
 @extends('main')
 @section('content')
-<div>
+<div class="max-w-4xl mx-auto bg-white p-6 rounded-md shadow">
     <h1 class="text-3xl font-bold mb-4">All Restaurants</h1>
     <div class="overflow-x-auto">
-        <table class="min-auto mx-auto bg-white rounded-md border-gray-300">
+        <table class="min-w-full mx-auto bg-white rounded-lg border-gray-700">
             <thead>
                 <tr>
                     <th class="py-2 px-4 border-b">ID</th>
@@ -35,6 +35,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="mt-4">
+            {{ $restaurants->links() }}
+        </div>
     </div>
 </div>
 
