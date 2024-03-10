@@ -22,8 +22,9 @@
         <div class="container mx-auto">
             <ul class="flex space-x-4">
                 <li><a href="/" class="hover:text-gray-300">Home</a></li>
-                <li><a href="/restaurants" class="hover:text-gray-300">Restaurants</a></li>
-                <li><a href="/restaurants/create" class="hover:text-gray-300">Create</a></li>
+                <li><a href="{{route('restaurants.index')}}" class="hover:text-gray-300">Restaurants</a></li>
+                <li><a href="{{route('restaurants.create')}}" class="hover:text-gray-300">Create</a></li>
+                <li><a href="{{route('dashboard')}}" class="hover:text-gray-300">dashboard</a></li>
             </ul>
         </div>
     </nav>

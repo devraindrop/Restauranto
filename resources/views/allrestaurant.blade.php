@@ -24,12 +24,16 @@
                     </td>
                     <td class="py-2 px-4 border-b">{{ $restaurant->description }}</td>
                     <td class="py-2 px-4 border-b">{{ $restaurant->rating }}</td>
-                    <td class="py-2 px-4 border-b"><a href="{{ route('restaurants.edit', $restaurant->id) }}" class="text-blue-500 hover:text-blue-900">Edit</a>/<form action="{{ route('restaurants.destroy', $restaurant->id) }}" method="POST" class="inline">
+                    <td class="py-2 px-4 border-b">
+                        @auth
+                        <a href="{{ route('restaurants.edit', $restaurant->id) }}" class="text-blue-500 hover:text-blue-900">Edit</a>/<form action="{{ route('restaurants.destroy', $restaurant->id) }}" method="POST" class="inline">
                         @csrf
                         @method('DELETE')
 
                         <button type="submit" class="text-red-500 hover:text-red-900">Delete</button>
                     </form>
+
+                    @endauth
                     </td>
                 </tr>
                 @endforeach
