@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address')->nullable();
             $table->string('phone_number')->nullable();
+            $table->integer('role_id');
             $table->text('description')->nullable();
             $table->decimal('rating', 3, 2)->default(0.00);
             $table->timestamps();

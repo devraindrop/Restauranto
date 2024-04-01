@@ -27,7 +27,7 @@ class RestaurantRequest extends FormRequest
         return [
             'name' => 'required|string',
             'address' => 'required|string',
-            'phone_number' => 'required|integer|' . $phone_number,
+            'phone_number' => 'required|integer|'.$phone_number,
             'description' => 'nullable|string',
         ];
     }

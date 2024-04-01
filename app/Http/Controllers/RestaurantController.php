@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RestaurantRequest;
 use App\Models\Restaurant;
-use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
     public function index()
     {
         $restaurants = Restaurant::paginate(3);
+
         return view('allRestaurant', compact('restaurants'));
     }
 
@@ -34,7 +34,7 @@ class RestaurantController extends Controller
 
         Restaurant::create($validatedData);
 
-        return redirect()->route('restaurants.index')->with('success' , 'your data has been added');
+        return redirect()->route('restaurants.index')->with('success', 'your data has been added');
     }
 
     public function edit(Restaurant $restaurant)
@@ -50,13 +50,13 @@ class RestaurantController extends Controller
 
         $restaurant->update($validatedData);
 
-        return redirect()->route('restaurants.index')->with('success' , 'your data has been updated');
+        return redirect()->route('restaurants.index')->with('success', 'your data has been updated');
     }
 
     public function destroy(Restaurant $restaurant)
     {
         $restaurant->delete();
 
-        return redirect()->route('restaurants.index')->with('success' , 'your data has been deleted');
+        return redirect()->route('restaurants.index')->with('success', 'your data has been deleted');
     }
 }

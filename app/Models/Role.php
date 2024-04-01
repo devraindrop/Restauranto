@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Restaurant extends Model
+class Role extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'address', 'phone_number', 'user_id', 'description', 'rating'];
+    protected $fillable = ['id', 'role_name'];
 }

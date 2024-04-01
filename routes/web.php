@@ -23,11 +23,11 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+    Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create')->middleware('can:admin');
     Route::post('/restaurants', [RestaurantController::class, 'store'])->name('restaurants.store');
-    Route::get('/restaurants/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit');
-    Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->name('restaurants.update');
-    Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->name('restaurants.destroy');
+    Route::get('/restaurants/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit')->middleware('can:edit.restaurant,restaurant');
+    Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->name('restaurants.update')->middleware('can:edit.restaurant,restaurant');
+    Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->name('restaurants.destroy')->middleware('can:delete.restaurant,restaurant');
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -43,4 +43,3 @@ Route::get('/deals', function () {
 // Route::get('/restaurants/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit');
 // Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->name('restaurants.update');
 // Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->name('restaurants.destroy');
-

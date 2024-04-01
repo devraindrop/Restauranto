@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Restaurant;
+use Illuminate\Database\Seeder;
 
 class RestaurantSeeder extends Seeder
 {
@@ -17,6 +16,7 @@ class RestaurantSeeder extends Seeder
             'name' => 'Cozy Corner Cafe',
             'address' => '123 Main Street, Cityville',
             'phone_number' => '123-456-7890',
+            'user_id' => '3',
             'description' => 'A cozy cafe serving breakfast and brunch.',
             'rating' => 4.5,
         ]);
@@ -25,6 +25,7 @@ class RestaurantSeeder extends Seeder
             'name' => 'Family Feast Bistro',
             'address' => '456 Oak Avenue, Townsville',
             'phone_number' => '987-654-3210',
+            'user_id' => '4',
             'description' => 'Family-friendly bistro with a diverse menu.',
             'rating' => 3.8,
         ]);
